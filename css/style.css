@@ -15,13 +15,28 @@ img{
     clear: both;
 }
 .full-wrapper{
-    width: 1920px;
-    margin: 0 auto;
+    width: 100%;
 }
-.full-wrapper .container{
+.container{
     width: 1170px;
     margin: 0 auto;
 }
+.arrow{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    position: fixed;
+    bottom: 20px; 
+    right: 10px;
+    display: none;
+    z-index: 9999;
+}
+.arrow i{
+    display: block;
+    font-size: 30px;
+    color: #1da1f2;
+}
+
 /* ==================
 common css end 
 =====================*/
@@ -86,38 +101,51 @@ margin css end
 /* ==================
 heading css end 
 =====================*/
-
-.banner-bg{
-    height: 700px;
-    background:url(../images/banner.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    z-index: 1;
+.menu-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 }
-.banner-bg .banner{
-    height: 700px;
+.menu-fix{
+    background: #1da1f2;
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    animation: fix 1s linear;
+    -webkit-animation: fix 1s linear;
 }
-.banner-bg .banner .banner-menu{
+@keyframes fix{
+    0%{
+        top: -100px;
+    }
+    100%{
+        top: 0px;
+    }
+}
+.menu-bg .menu{
+    height: 100px;
+}
+.menu-bg .menu .banner-menu{
     width: 100%;
-    height: 150px;
+    height: 100%;
     position: relative;
 }
-.banner-bg .banner .banner-menu img{
+.menu-bg .menu .banner-menu img{
     width: 230px;
-    margin-top:40px ;
+    margin-top:20px ;
 }
-.banner-bg .banner .banner-menu ul{
+.menu-bg .menu .banner-menu ul{
     position:absolute;
-    top: 90px;
+    top: 40px;
     left:587px;
 }
-.banner-bg .banner .banner-menu ul li{
+.menu-bg .menu .banner-menu ul li{
     float: left; 
     position: relative;
 }
-.banner-bg .banner .banner-menu ul li a{
+.menu-bg .menu .banner-menu ul li a{
     margin-left: 35px;
     text-transform: capitalize;
     font-family: 'Open Sans', sans-serif;
@@ -130,10 +158,10 @@ heading css end
     -ms-transition:all linear .4s ;
     -o-transition:all linear .4s ;
 }
-.banner-bg .banner .banner-menu ul li a:hover{
+.menu-bg .menu .banner-menu ul li a:hover{
     color:#744fa0 ;
 }
-.banner-bg .banner .banner-menu ul li a span{
+.menu-bg .menu .banner-menu ul li a span{
     display: inline-block;
     width: 15px;
     height: 1px;
@@ -149,11 +177,11 @@ heading css end
     -ms-transition: all linear .4s;
     -o-transition: all linear .4s;
 }
-.banner-bg .banner .banner-menu ul li a:hover span{
+.menu-bg .menu .banner-menu ul li a:hover span{
     opacity: 1;
     visibility: visible;
 }
-.banner-bg .banner .banner-menu .trial {
+.menu-bg .menu .banner-menu .trial {
     display: inline-block;
     padding: 9px 20px;
     text-transform:capitalize;
@@ -163,23 +191,39 @@ heading css end
     font-size: 14px;
     color: #fdfdfe;
     position: absolute;
-    top: 58px;
+    top: 32px;
     right: 0;
 }
+
+
+/* ==================
+menu css end 
+=====================*/
+
+.banner-bg{
+    height: 700px;
+    background:url(../images/banner.jpg) no-repeat center /cover;
+    position: relative;
+    z-index: 1;
+}
+.banner-bg .banner{
+    height:100%;
+}
+
 .banner-bg .banner .banner-content{
     width: 100%;
-    height: 550px;
+    height:100%;
     position: relative;
     text-align: right;
 }
 .banner-bg .banner .banner-content img{
     position: absolute;
-    top: 0;
+    top: 90px;
     left: -100px;
     z-index: -1;
 }
 .banner-bg .banner .banner-content h1{
-    padding-top:80px;
+    padding-top:170px;
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
@@ -281,6 +325,16 @@ heading css end
     font-weight: 700;
     font-size: 18px;
 }
+.banner-bg .overlay{
+    width: 100%;
+    height: 700px;
+    background: rgb(0, 0, 0,.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
 .banner-bg ul{
     position: absolute;
     top: 50%;
@@ -340,16 +394,6 @@ heading css end
     opacity: 1;
     visibility: visible;
 }
-.banner-bg .overlay{
-    width: 100%;
-    height: 700px;
-    background: rgb(0, 0, 0,.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
 /* ==================
 banner css end 
 =====================*/
@@ -626,10 +670,10 @@ screenshot css end
 }
 .video-bg .image{
     width: 100%;
-    height:500px;
+    height: 500px;
     position: relative;
 }
-.video-bg .image::before{
+.video-bg .image::after{
     content: '';
     width: 100%;
     height:100%;
@@ -640,6 +684,7 @@ screenshot css end
 }
 .video-bg .image img{
     width: 100%;
+    height: 500px;
 }
 .video-bg .image a{
     position: absolute;
@@ -650,6 +695,7 @@ screenshot css end
     -moz-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     -o-transform: translate(-50%,-50%);
+    z-index: 1;
 }
 .video-bg .image a i{
     font-size: 80px;
@@ -662,7 +708,7 @@ video css end
     height: 635px;
 }
 .plan-bg .plan{
-    height:100%;
+    height:635px;
 }
 .plan-bg .plan .heading{
     height:210px;
@@ -675,6 +721,7 @@ video css end
     margin-right:45px;
 }
 .plan-bg .plan .plan-content{
+    width: 100%;
     height:410px;
 }
 .plan-bg .plan .plan-content .plan-item{
@@ -978,28 +1025,34 @@ plan css end
 team css end 
 =====================*/ 
 .feedback-bg{
-    height: 760px;
+    height: 810px;
 }
-.feedback-bg .heading{
+.feedback-bg .feedback{
+    width: 100%;
+    height:100%;
+}
+
+.feedback-bg .feedback .heading{
     height: 210px;
     width:100% ;
     text-align: center;
 }
-.feedback-bg .heading h3{
+.feedback-bg .feedback .heading h3{
     padding-top:90px;
 }
 .feedback-bg .heading h4{
     margin-right:40px ;
 }
-.feedback-bg .feedback-banner{
-    width: 100%;
-    height: 550px;
+.feedback-bg .feedback .feedback-banner{
+    width:100%;
+    height: 600px;
     position: relative;
 }
-.feedback-bg .feedback-banner img{
+.feedback-bg .feedback .feedback-banner img{
     width: 100%;
+    height: 100%;
 }
-.feedback-bg .feedback-banner .overlay{
+.feedback-bg .feedback .feedback-banner .overlay{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0,.7);
@@ -1007,14 +1060,14 @@ team css end
     top: 0;
     left: 0;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item{
     width: 1170px;
     height: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 1;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .text{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .text{
     width: 800px;
     height: 238px;
     background: #f1f1f1;
@@ -1028,7 +1081,7 @@ team css end
     -ms-border-radius: 14px;
     -o-border-radius: 14px;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .text p{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .text p{
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -1037,27 +1090,27 @@ team css end
     padding-left: 70px;
     padding-right: 68px;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .text h5{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .text h5{
     padding-top: 25px;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .text h5 i{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .text h5 i{
     font-size: 14px;
     color: #744fa0;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .text h3{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .text h3{
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 18px;
     color: #353535;
     padding-top: 7px;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .text h4{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .text h4{
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #555555;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .text::before{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .text::before{
     content: '';
     width:30px;
     height:30px;
@@ -1077,7 +1130,7 @@ team css end
     -o-border-radius: 5px;
     z-index: -1;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .image{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .image{
     width: 100px;
     height: 100px;
     background: #f1f1f1;
@@ -1090,12 +1143,12 @@ team css end
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .image1{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .image1{
     margin-left: 340px;
     position: relative;
     overflow: hidden;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .image1::before{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .image1::before{
     content: '';
     width:100px;
     height:100px;
@@ -1104,15 +1157,15 @@ team css end
     top:0;
     left: 0;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .image2{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .image2{
     width: 150px;
     height: 150px;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .image3{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .image3{
     position: relative;
     overflow: hidden;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item .image3::before{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item .image3::before{
     content: '';
     width:100px;
     height:100px;
@@ -1121,12 +1174,12 @@ team css end
     top:0;
     left: 0;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item ul{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item ul{
     position: absolute;
     bottom:30px;
     left: 535px;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item ul li{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item ul li{
     width: 18px;
     height: 18px;
     border: 3px solid #ffffff;
@@ -1139,7 +1192,7 @@ team css end
     -o-border-radius: 50%;
     position: relative;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item ul li:before{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item ul li:before{
     content: '';
     width: 8px;
     height:8px;
@@ -1160,10 +1213,10 @@ team css end
     opacity: 0;
     visibility: hidden;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item ul li.active{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item ul li.active{
     border: 3px solid #744fa0;
 }
-.feedback-bg .feedback-banner .overlay .overlay-item ul li.active::before{
+.feedback-bg .feedback .feedback-banner .overlay .overlay-item ul li.active::before{
     opacity: 1;
     visibility:visible;
 }
